@@ -1,3 +1,17 @@
 function countLetters(string) {
-  
+  var output = {};
+  var noSpaces = string.split(' ').join('');
+  var letters = /^[A-Za-z]+$/;
+
+  for (var i = 0; i < noSpaces.length; i++) {
+    if (noSpaces[i].match(letters)) {
+      if (output[`${noSpaces[i]}`] == undefined) {
+        output[`${noSpaces[i]}`] = 0;
+      }
+      output[`${noSpaces[i]}`]++;
+    }
+  }
+  return output;
 }
+
+console.log(countLetters("lighthouse in the house"));
